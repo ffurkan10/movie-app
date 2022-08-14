@@ -12,6 +12,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 50px;
+    padding: 10px;
     h1 {
       margin-right: 50px;
     }
@@ -19,6 +20,7 @@
   &__detail {
     display: flex;
     justify-content: space-between;
+    padding: 10px;
     img {
       width: 600px;
       margin-bottom: 50px;
@@ -67,6 +69,7 @@
 
 .create {
   margin-top: 80px;
+  padding: 10px;
   .create__similar {
     display: flex;
     align-items: center;
@@ -132,4 +135,70 @@
   padding: 0.5rem;
   border-radius: 5px;
   font-size: 1rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .create__main {
+    &__detail {
+      img {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 992px) {
+  .create__main {
+    &__detail {
+      img {
+        max-width: 500px;
+        margin-right: 10px;
+      }
+      &__text {
+        p {
+          max-width: 450px;
+          line-height: 25px;
+        }
+        a {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .create__main {
+    img {
+      max-width: 600px;
+    }
+    &__detail {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      &__text {
+        p {
+          max-width: 600px;
+        }
+      }
+    }
+    &__title {
+      margin-left: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .create__main {
+    img {
+      max-width: 450px;
+    }
+    &__detail {
+      &__text {
+        p {
+          max-width: 450px;
+        }
+      }
+    }
+  }
 }
