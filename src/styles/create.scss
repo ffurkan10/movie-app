@@ -202,3 +202,18 @@
     }
   }
 }
+
+@media screen and (max-width: 500px) {
+  .create__main {
+    img {
+      max-width: 400px;
+    }
+    &__detail {
+      &__text {
+        p {
+          max-width: 400px;
+        }
+      }
+    }
+  }
+}
