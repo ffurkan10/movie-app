@@ -201,21 +201,27 @@
         }
       }
     }
+    &__title {
+      margin-left: 20px;
+    }
   }
 }
 
 @media screen and (max-width: 500px) {
   .create__main {
     img {
-      max-width: 380px;
+      max-width: 400px;
     }
     &__detail {
       &__text {
         p {
-          max-width: 380px;
+          max-width: 400px;
           font-size: 14px;
         }
       }
+    }
+    &__title {
+      margin-left: 10px;
     }
   }
 
