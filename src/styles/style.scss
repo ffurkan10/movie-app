@@ -13,3 +13,23 @@ body {
   color: white;
   font-family: "Poppins", sans-serif;
 }
+.moviedetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__btn {
+    width: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    &__detail {
+      margin-block: 30px;
+      font-size: 30px;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      color: rgb(1, 180, 228);
+    }
+  }
+}
