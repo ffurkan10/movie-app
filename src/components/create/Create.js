@@ -41,7 +41,7 @@ const Create = () => {
       return "redvote";
     }
   };
-
+  console.log(details);
   return (
     <div className="create__container">
       <div className="create__main">
@@ -65,12 +65,13 @@ const Create = () => {
         <div className="create__similar">
           {similar.map((movie) => (
             <Link
+              key={movie.id}
               state={{
                 similar: similar.filter((item) => item.id === movie.id),
               }}
               to={`/movie/${movie.id}`}
             >
-              <ul className="create__similar__ul" key={movie.id}>
+              <ul className="create__similar__ul">
                 <li className="create__similar__ul__li">
                   <img src={IMG_API + movie.backdrop_path} alt="" />
                   <h4>{movie.title}</h4>
