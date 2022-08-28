@@ -1,5 +1,4 @@
 import React from "react";
-
 import { GrLinkNext } from "react-icons/gr";
 import { GrLinkPrevious } from "react-icons/gr";
 import { Link } from "react-router-dom";
@@ -16,6 +15,7 @@ const MovieList = ({ detail, prevClick, nextClick }) => {
       return "red";
     }
   };
+
   return (
     <div className="moviedetails">
       <div className="movie">
@@ -41,7 +41,7 @@ const MovieList = ({ detail, prevClick, nextClick }) => {
           <GrLinkPrevious />
         </button>
         <button onClick={nextClick} className="moviedetails__btn__detail">
-          <GrLinkNext color="red" />
+          <GrLinkNext />
         </button>
       </div>
     </div>

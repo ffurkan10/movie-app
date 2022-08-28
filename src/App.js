@@ -17,7 +17,7 @@ function App() {
       .then((res) => {
         setDetail(res.data.results);
       });
-  }, []);
+  }, [page]);
   console.log(detail);
   const nextClick = () => {
     setPage((page) => page + 1);
