@@ -37,11 +37,11 @@ const MovieList = ({ detail, prevClick, nextClick }) => {
         ))}
       </div>
       <div className="moviedetails__btn">
-        <button className="moviedetails__btn__detail">
-          <GrLinkPrevious onClick={prevClick} />
+        <button onClick={prevClick} className="moviedetails__btn__detail">
+          <GrLinkPrevious />
         </button>
-        <button className="moviedetails__btn__detail">
-          <GrLinkNext onClick={nextClick} />
+        <button onClick={nextClick} className="moviedetails__btn__detail">
+          <GrLinkNext color="red" />
         </button>
       </div>
     </div>
