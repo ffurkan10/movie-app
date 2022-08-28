@@ -1,0 +1,13 @@
+.movie__input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  input {
+    width: 250px;
+    height: 30px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    padding: 10px;
+  }
+}
