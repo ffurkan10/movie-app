@@ -1,37 +1,40 @@
-import axios from "axios";
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import MovieDetails from "../movie-details/MovieDetails";
+
 import { GrLinkNext } from "react-icons/gr";
 import { GrLinkPrevious } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
-const MovieList = () => {
-  const [detail, setDetail] = useState([]);
-  const [page, setPage] = useState(1);
+const MovieList = ({ detail, prevClick, nextClick }) => {
+  const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=ccb0a8566b23ab43471cda53fed3d9e7&language=en-US&page=${page}`
-      )
-      .then((res) => {
-        setDetail(res.data.results);
-      });
-  }, [page]);
-
-  const nextClick = () => {
-    setPage((page) => page + 1);
+  const setVoteClass = (vote) => {
+    if (vote >= 8) {
+      return "green";
+    } else if (vote >= 6) {
+      return "yellow";
+    } else {
+      return "red";
+    }
   };
-
-  const prevClick = () => {
-    setPage((page) => page - 1);
-  };
-
   return (
     <div className="moviedetails">
-      <div className="moviedetails__main">
-        <MovieDetails detail={detail} />
+      <div className="movie">
+        {detail.map((movie) => (
+          <div className="movie__list" key={movie.id}>
+            <Link
+              state={{ detail: detail.filter((item) => item.id === movie.id) }}
+              to={`/movie/${movie.id}`}
+            >
+              <img src={IMG_API + movie.backdrop_path} alt="" />
+              <div className="movie__list__detail">
+                <h3>{movie.title}</h3>
+                <span className={`tag ${setVoteClass(movie.vote_average)}`}>
+                  {movie.vote_average}
+                </span>
+              </div>
+            </Link>
+          </div>
+        ))}
       </div>
       <div className="moviedetails__btn">
         <button className="moviedetails__btn__detail">
