@@ -6,7 +6,7 @@ import { useParams, Link } from "react-router-dom";
 
 const Create = () => {
   const { id } = useParams();
-  const [details, setDetails] = useState([]);
+  const [movieDetail, setMovieDetail] = useState([]);
   const [similar, setSimilar] = useState([]);
   const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
@@ -16,7 +16,7 @@ const Create = () => {
         `https://api.themoviedb.org/3/movie/${id}?api_key=ccb0a8566b23ab43471cda53fed3d9e7&language=en-US`
       )
       .then((res) => {
-        setDetails(res.data);
+        setMovieDetail(res.data);
       });
   }, [id]);
 
@@ -41,21 +41,21 @@ const Create = () => {
       return "redvote";
     }
   };
-  console.log(details);
+  console.log(movieDetail);
   return (
     <div className="create__container">
       <div className="create__main">
         <div className="create__main__title">
-          <h1>{details.title}</h1>
-          <span className={`tag ${setVoteClass(details.vote_average)}`}>
-            {details.vote_average?.toFixed(1)}
+          <h1>{movieDetail.title}</h1>
+          <span className={`tag ${setVoteClass(movieDetail.vote_average)}`}>
+            {movieDetail.vote_average?.toFixed(1)}
           </span>
         </div>
         <div className="create__main__detail">
-          <img src={IMG_API + details.backdrop_path} alt="" />
+          <img src={IMG_API + movieDetail.backdrop_path} alt="" />
           <div className="create__main__detail__text">
-            <p>{details.overview}</p>
-            <a href={details.homepage}>Click for original website</a>
+            <p>{movieDetail.overview}</p>
+            <a href={movieDetail.homepage}>Click for original website</a>
           </div>
         </div>
       </div>
